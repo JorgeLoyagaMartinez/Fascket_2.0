@@ -79,11 +79,6 @@ button {
     margin-left: 20px;
   }
 
-  .completar:hover{
-    background: rgb(25, 154, 25);
-
-  }
-
   .eliminar{
     background: rgb(222, 12, 12);
     color: white;
