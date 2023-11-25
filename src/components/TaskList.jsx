@@ -1,8 +1,18 @@
-import React from 'react'
 
-export const TaskList = () => {
+import { TaskItem } from './TaskItem'
+
+export const TaskList = ({tasks, handleComplete, handleDelete} ) => {
+
   return (
-    <div>TaskList</div>
+    <div>
+        {tasks.map(task => (
+            <TaskItem
+            key={task.id}
+            task={task}
+            handleComplete={handleComplete}
+            handleDelete={handleDelete}
+            />
+        ))}
+    </div>
   )
 }
- 
