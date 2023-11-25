@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+h1{
+    text-align: center;
+    color: aliceblue;
+    padding: 20px 0;
+    border-bottom: 5px solid;
+}
+
+button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #555;
+}

@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useEffect, useState } from 'react'
+import TaskForm from './components/TaskForm'
+import TaskList from './components/TaskList'
+import './Style/Style.css'
 function App() {
-  const [count, setCount] = useState(0)
+  const [task, setTask] = useState([]);
+
+  //Funciones para gestionar eventos
+  const handleComplete = taskId => {
+    // Logica para marcar como completado una tarea
+    // Actualizacion del estado de las tareas
+    const uodateTasks = tasks.map(task => 
+      task.id ===taskId ? {...task, completed: !task.completed } : task
+      );
+      setTasks(updateTasks);
+  };
+
+  const handleDelete = taskId => {
+    // Logica para eliminar una tarea
+    // Actualizacion del estado de las tareas
+    const updateTasks = tasks.filter(task => task.id !== taskId);
+    setTasks(updateTasks);
+  };
+
+  const addTask = taskName => {
+    // Logica para agregar una nueva tarea
+    // Generacion de una nueva tarea y actualizacion del estado de las tareas
+    const newTask = {
+      id: tasks.length + 1,
+      name: taskName,
+      completed: false, 
+    };
+    setTasks([...tasks, newTask]);
+  };
+
+  // useEffect para realizar acciones cuando cambio el estado de las tareas
+  useEffect(() => {
+    // Ejemplo mostrar un mensaje cuando se agrega o elimina una tarea
+    console.log('Tareas actualizadas:', tasks);
+  }, [tasks]);
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>App - Lista de Tareas</h1>
+        <TaskForm addTask={addTask} />
+        {/* <TaskList
+          tasks={tasks}
+          handleComplete={handleComplete}
+          handleDelete={handleDelete} 
+        /> 
+        */}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
-}
+  );
+};
 
 export default App
