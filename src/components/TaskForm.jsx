@@ -20,7 +20,7 @@ export const TaskForm = ({ addTask }) => {
         onChange={e => setTaskName(e.target.value)}
         placeholder="Nueva tarea"
       />
-      <button type="submit" >Agregar</button>
+      <button className='agregarTarea' type="submit" >Agregar tarea</button>
     </form>
   )
 }

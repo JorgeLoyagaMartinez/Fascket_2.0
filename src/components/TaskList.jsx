@@ -4,7 +4,7 @@ import { TaskItem } from './TaskItem'
 export const TaskList = ({tasks, handleComplete, handleDelete} ) => {
 
   return (
-    <div>
+    <div className='taskList'>
         {tasks.map(task => (
             <TaskItem
             key={task.id}

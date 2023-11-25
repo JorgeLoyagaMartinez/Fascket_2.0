@@ -42,9 +42,9 @@ const App = () => {
   }, [tasks]);
 
   return (
-    <div>
+    <div  className='divContenedor'>
       <h1>App - Lista de Tareas</h1>
-      <TaskForm addTask={addTask} />
+      <TaskForm  addTask={addTask}/> 
       <TaskList
         tasks={tasks}
         handleComplete={handleComplete}

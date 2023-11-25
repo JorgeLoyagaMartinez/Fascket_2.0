@@ -19,8 +19,8 @@ export const TaskItem = ({handleComplete, handleDelete, task}) => {
         <span style={{ textDecoration: isCompleted ? 'line-through' : 'none' }}>
             {task.name}
         </span>
-        <button onClick={toggleComplete}>Completar</button>
-        <button onClick={onDelete}>Eliminar</button>
+        <button className='completar' onClick={toggleComplete}>Completar</button>
+        <button className='eliminar' onClick={onDelete}>Eliminar</button>
     </div>
   )
 }
