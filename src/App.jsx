@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TaskForm } from './components/TaskForm';
 import { TaskList } from './components/TaskList';
+import { GrTask } from "react-icons/gr";
 import './Style/Style.css'
 
 
@@ -43,7 +44,10 @@ const App = () => {
 
   return (
     <div  className='divContenedor'>
+      <div className='contenedorTitulo'>
       <h1>App - Lista de Tareas</h1>
+      <GrTask className='icono'/>
+      </div>
       <TaskForm  addTask={addTask}/> 
       <TaskList
         tasks={tasks}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -5,14 +7,15 @@
     background-color: rgb(166, 236, 202);
     font-size: 18px;
     color: black;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
+
 h1{
     text-align: center;
     padding: 20px 0;
     font-size: 32px;
-    margin-bottom: 30px;
-    
+    margin-right: 10px;
 }
 button {
     padding: 5px 10px;
@@ -103,3 +106,34 @@ button {
     margin-left: 16px;
     border-radius: 10px;
   }
+
+  .contenedorTitulo{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icono{
+    font-size: 22px;
+    background: transparent;
+  }
+
+  .iconito{
+    font-size: 14px;
+    background: transparent;
+  }
+
+  .iconito2{
+    font-size: 17px;
+    background: transparent;
+  }
+
+  form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+ 
