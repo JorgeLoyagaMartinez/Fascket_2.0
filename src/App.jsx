@@ -7,6 +7,7 @@ import './Style/Style.css'
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [searchTask, setSearchTask] = useState('');
 
   // Funciones para gestionar eventos
   const handleComplete = taskId => {
@@ -42,15 +43,26 @@ const App = () => {
     console.log('Tareas actualizadas:', tasks);
   }, [tasks]);
 
+  const filteredTasks = tasks.filter((task) =>
+  // Filtrar tareas basándote en el término de búsqueda  
+    task.name.toLowerCase().includes(searchTask.toLowerCase())
+  );
+
   return (
     <div  className='divContenedor'>
       <div className='contenedorTitulo'>
       <h1>App - Lista de Tareas</h1>
       <GrTask className='icono'/>
       </div>
-      <TaskForm  addTask={addTask}/> 
+      <TaskForm  addTask={addTask}/>
+      <input
+        type="text"
+        value={searchTask}
+        onChange={(e) => setSearchTask(e.target.value)}
+        placeholder="Buscar tarea"
+      />
       <TaskList
-        tasks={tasks}
+        tasks={filteredTasks}
         handleComplete={handleComplete}
         handleDelete={handleDelete}
       />
