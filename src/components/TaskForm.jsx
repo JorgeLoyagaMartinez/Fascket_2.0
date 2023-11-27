@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../style/style.css'
+import '../Style/Style.css'
 
 export const TaskForm = ({ addTask }) => {
     const [taskName, setTaskName] = useState('');
