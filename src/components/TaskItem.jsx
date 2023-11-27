@@ -1,5 +1,9 @@
 
 import React, { useState } from 'react';
+import { FaCheck } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
+
+
 
 export const TaskItem = ({handleComplete, handleDelete, task}) => {
     const [isCompleted, setIsCompleted] = useState(false)
@@ -19,8 +23,8 @@ export const TaskItem = ({handleComplete, handleDelete, task}) => {
         <span style={{ textDecoration: isCompleted ? 'line-through' : 'none' }}>
             {task.name}
         </span>
-        <button className='completar' onClick={toggleComplete}>Completar</button>
-        <button className='eliminar' onClick={onDelete}>Eliminar</button>
+        <button className='completar' onClick={toggleComplete}><FaCheck className='iconito'/> Completar</button>
+        <button className='eliminar' onClick={onDelete}><IoMdClose className='iconito2'/> Eliminar</button>
     </div>
   )
 }
