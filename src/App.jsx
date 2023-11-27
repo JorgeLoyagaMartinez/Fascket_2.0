@@ -17,6 +17,7 @@ const App = () => {
       task.id === taskId ? { ...task, completed : !task.completed } : task
     );
     setTasks(updatedTasks);
+    saveTasks(updatedTasks); // Guardar en localStorage
   };
 
   const handleDelete = taskId => {
@@ -24,6 +25,7 @@ const App = () => {
     // Actualización del estado de las tareas
     const updatedTasks = tasks.filter(task => task.id !== taskId);
     setTasks(updatedTasks);
+    saveTasks(updatedTasks); // Guardar en localStorage
   };
 
   const addTask = taskName => {
@@ -34,7 +36,19 @@ const App = () => {
       name: taskName,
       completed: false,
     };
-    setTasks([...tasks, newTask]);
+    const updatedTasks = [...tasks, newTask];
+    setTasks(updatedTasks);
+    saveTasks(updatedTasks); // Guardar en localStorage
+  };
+
+  // Función para cargar las tareas desde localStorage al inicio
+  const loadTasks = () => {
+    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    setTasks(savedTasks);
+  };
+
+  const saveTasks = (tasks) => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   };
 
   // useEffect para realizar acciones cuando cambia el estado de las tareas
@@ -42,6 +56,10 @@ const App = () => {
     // Ejemplo: Mostrar un mensaje cuando se agrega o elimina una tarea
     console.log('Tareas actualizadas:', tasks);
   }, [tasks]);
+
+  useEffect(() => {
+    loadTasks();
+  }, []); // Se ejecutará solo una vez al inicio
 
   const filteredTasks = tasks.filter((task) =>
   // Filtrar tareas basándote en el término de búsqueda  
